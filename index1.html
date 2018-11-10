@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <h1><strong>The Psychic Game!!</strong></h1>
+</head>
+
+<body>
+
+    <div id="game">
+        <p>Guess What Letter I'm Thinking Of: <strong id="computerChoice"> ? </strong></p>
+        <p>Wins: <strong id="wins"> 0 </strong></p>
+        <p>Losses: <strong id="losses"> 0 </strong></p>
+        <p>Guesses Left: <strong id="Guesses"> 0 </strong></p>
+        <p>Your Guesses So Far: <strong id="userGuess"> - </strong></p>
+    </div>
+
+    <script type="text/javascript">
+   
+        alert("Please choose letters a, b, c, to start")
+
+        // I got stuck here and forgot how to loop where I dont have to write out all the letters. I looked it up in google and something different kept generating.
+        var computerChoices = ["a", "b", "c"];
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 0;
+        var userGuess =
+        
+        // Was I starting this off correct? I dont know why I cant get the wins, losses and guesses left to change.
+            document.onkeyup = function (event) {
+                var userGuess = event.key;
+                var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                document.getElementById("userGuess").textContent = userGuess;
+                document.getElementById("computerChoice").textContent = computerGuess;
+
+                if ((userGuess == "a" && computerGuess == "b") || (userGuess == "c" && computerGuess == "a") || (userGuess == "b" && computerGuess == "c")) {
+                    wins = wins + 1;
+                    document.getElementById("wins").textContent = wins;
+                } else if ((userGuess == "b" && computerGuess == "a") || (userGuess == "b" && computerGuess == "c") || (userGuess == "c" && computerGuess == "b")) {
+                    losses = losses + 1;
+                    document.getElementById("losses").textContent = losses;
+                } else if (userGuess == computerGuess) {
+                    left = left + 1;
+                    document.getElementById("guess-left").textContent = left;
+                }
+            };
+
+    </script>
+
+</body>
+
+</html>
